@@ -1,0 +1,10 @@
+{:itonami.blueprint/id "cloud-itonami-isco-1412"
+ :itonami.blueprint/name "Independent Restaurant Management Practice"
+ :itonami.blueprint/isco-08 "1412"
+ :itonami.blueprint/domain :management/restaurant-management
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:local-jobs :food-safety :small-business-viability]
+ :itonami.blueprint/governor :restaurant-management-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger]
+ :itonami.blueprint/status :public-oss}
