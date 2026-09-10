@@ -61,17 +61,17 @@ human-in-the-loop interrupt/resume via checkpointing.
                                            +-> :hold               (:hard? true)
 ```
 
-- `src/restaurant_management/store.cljc` — `Store` protocol +
+- `src/restaurant_management/store.kotoba` — `Store` protocol +
   `MemStore`: registered locations, committed records, an append-only
   audit ledger.
-- `src/restaurant_management/advisor.cljc` — `Advisor` protocol;
+- `src/restaurant_management/advisor.kotoba` — `Advisor` protocol;
   `mock-advisor` (deterministic, default) proposes a restaurant
   operation from a request; `llm-advisor` wraps a
   `langchain.model/ChatModel` — either way the advisor only ever
   produces a `:propose`-effect proposal, never a committed record, and
   LLM parse failures always yield `confidence 0.0` (forces escalation,
   never fabricated confidence).
-- `src/restaurant_management/governor.cljc` —
+- `src/restaurant_management/governor.kotoba` —
   `RestaurantManagementGovernor/check`: a pure function, wired as its
   own `:govern` node. Hard invariants (unregistered location, a
   proposal whose `:effect` isn't `:propose`) always route to `:hold`.
@@ -82,7 +82,7 @@ human-in-the-loop interrupt/resume via checkpointing.
   (`actor/approve!`), matching the README's robotics-premise statement
   that operating near open flame or hot surfaces and clearing a
   food-safety hold always require human sign-off.
-- `src/restaurant_management/actor.cljc` — `build-graph`,
+- `src/restaurant_management/actor.kotoba` — `build-graph`,
   `run-request!`, `approve!`: the `langgraph.graph/state-graph` wiring
   itself.
 
